@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SujetService } from 'src/app/services/sujet.service';
 
@@ -10,9 +10,9 @@ import { SujetService } from 'src/app/services/sujet.service';
 })
 export class EditPopUpComponent implements OnInit {
   sujet:any;
-  editForm = new FormGroup({
-    title: new FormControl('',[Validators.required]),
-    body: new FormControl('',[Validators.required]),
+  editForm = new UntypedFormGroup({
+    title: new UntypedFormControl('',[Validators.required]),
+    body: new UntypedFormControl('',[Validators.required]),
   });
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number},public sujetService:SujetService) { }

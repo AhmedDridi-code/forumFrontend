@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { SujetService } from 'src/app/services/sujet.service';
@@ -12,9 +12,9 @@ import { SujetService } from 'src/app/services/sujet.service';
 export class AddPopUpComponent implements OnInit {
 
   sujet:any;
-  addForm = new FormGroup({
-    title: new FormControl('',[Validators.required]),
-    text: new FormControl('',[Validators.required]),
+  addForm = new UntypedFormGroup({
+    title: new UntypedFormControl('',[Validators.required]),
+    text: new UntypedFormControl('',[Validators.required]),
   });
 
   constructor(public sujetService:SujetService, public authService:AuthService) { }

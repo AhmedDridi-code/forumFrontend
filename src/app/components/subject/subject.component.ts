@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommentService } from 'src/app/services/comment.service';
+import { RatingService } from 'src/app/services/rating.service';
 import { SujetService } from 'src/app/services/sujet.service';
 import { EditCommentComponent } from '../edit-comment/edit-comment.component';
 
@@ -13,9 +14,11 @@ import { EditCommentComponent } from '../edit-comment/edit-comment.component';
 })
 export class SubjectComponent implements OnInit {
   starRating:number=0;
+  rating:any;
+  alreadyRated = false;
   sujet:any
   constructor(private sujetService: SujetService,private commentService: CommentService,
-     private activatedRoute: ActivatedRoute, public auth: AuthService, public dialog: MatDialog) { }
+     private activatedRoute: ActivatedRoute, public auth: AuthService, public dialog: MatDialog, public rateService:RatingService) { }
 
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(params => {
@@ -24,10 +27,19 @@ export class SubjectComponent implements OnInit {
 
         this.commentService.getSujet(id).subscribe(sujet =>{
           this.sujet = sujet;
+          
+          this.rateService.getRating(this.sujet.id,this.auth.loggedUser.id).subscribe((rating:any) =>{
+            if(rating){
+              console.log("rating")
+              console.log(rating);
+              this.rating = rating;
+              this.alreadyRated = true;
+              this.starRating = rating.value;
+            }
+          })
         })
-
-        
       })
+
   }
 
   addComment(input:String){
@@ -52,4 +64,21 @@ export class SubjectComponent implements OnInit {
     });
   }
 
+  rate(){
+    if(this.alreadyRated){
+      this.rating.value = this.starRating
+      this.rateService.editRating(this.rating).subscribe((result:any)=>{
+        console.log(result)
+        this.sujet = result.sujet;
+      })
+
+    }else{
+      let rating = { sujetId:this.sujet.id, userId:this.auth.loggedUser.id, value:this.starRating}
+      this.rateService.addRating(rating).subscribe((result:any)=>{
+        console.log(result)
+        this.sujet = result.sujet;
+      })
+    }
+
+  }
 }

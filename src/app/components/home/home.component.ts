@@ -12,12 +12,17 @@ import { EditPopUpComponent } from '../edit-pop-up/edit-pop-up.component';
 })
 export class HomeComponent implements OnInit {
   sujets:any[]=[]
+  mysubjects:any[]=[]
+
   constructor(public sujetService: SujetService,public authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.sujetService.getSujets().subscribe((result:any) => {
       this.sujets=result;
+      this.mysubjects = this.sujets.filter(sujet => sujet.user.id == this.authService.loggedUser.id)   
+      console.log(this.mysubjects) 
     })
+
   }
   
   addSujet(){

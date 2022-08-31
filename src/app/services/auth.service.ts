@@ -9,13 +9,20 @@ import { Subject } from 'rxjs';
 export class AuthService {
   
   public loggedUser: any; 
-  public isloggedIn: Boolean = false;
+  public isloggedIn: boolean = false;
   public role: string= ""; 
   public token:string="";
   private error = new Subject<number>();
   url = environment.apiUrl
 
   constructor(private router: Router, private http:HttpClient) { }
+
+  getUser(){
+    this.http.get(this.url+"user/"+this.loggedUser.id).subscribe(user=>{
+      this.loggedUser = user;
+    })
+  }
+
   logout() { 
     this.isloggedIn= false;
     this.loggedUser = undefined;

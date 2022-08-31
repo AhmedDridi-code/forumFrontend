@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'searchByName'
+  name: 'searchByName',
+  pure: true
 })
 export class SearchByNamePipe implements PipeTransform {
 

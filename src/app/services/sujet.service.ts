@@ -51,5 +51,9 @@ export class SujetService {
       this.sujetsSub.next(this.sujets);
     })
   }
+
+  getMySubjects(id:number){
+
+  }
   
 }

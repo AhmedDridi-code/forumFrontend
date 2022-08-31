@@ -22,7 +22,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { EditPopUpComponent } from './components/edit-pop-up/edit-pop-up.component';
 import { AddPopUpComponent } from './components/add-pop-up/add-pop-up.component';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
-import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { ComponentComponent } from './components/component/component.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component'; 
+import { AuthGuard } from './auth.guard';
+import { DashboardGuard } from './dashbord.guard';
+import { SearchSujetPipe } from './pipes/search-sujet.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,10 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     SubjectComponent,
     EditPopUpComponent,
     AddPopUpComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    ComponentComponent,
+    EditProfileComponent,
+    SearchSujetPipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     NgbRatingModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, AuthGuard, DashboardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

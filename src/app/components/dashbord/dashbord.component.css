@@ -10,7 +10,7 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #0A2558;
+  background: #ff7361;
   transition: all 0.5s ease;
 }
 .sidebar.active{
@@ -50,10 +50,10 @@
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li a.active{
-  background: #081D45;
+  background: #f78c7b;
 }
 .sidebar .nav-links li a:hover{
-  background: #081D45;
+  background: #f78c7b;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
@@ -299,7 +299,7 @@ nav .profile-details i{
 }
 .sales-boxes .box .button a{
   color: #fff;
-  background: #0A2558;
+  background: #ff7361;
   padding: 4px 12px;
   font-size: 15px;
   font-weight: 400;

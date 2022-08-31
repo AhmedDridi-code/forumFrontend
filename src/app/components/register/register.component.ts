@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   invalid=false;
-  register = new FormGroup({
-    fullName: new FormControl('',[Validators.required]),
-    email: new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required]),
-    confirmPassword: new FormControl('',[Validators.required]),
+  register = new UntypedFormGroup({
+    fullName: new UntypedFormControl('',[Validators.required]),
+    email: new UntypedFormControl('',[Validators.required]),
+    password: new UntypedFormControl('',[Validators.required]),
+    confirmPassword: new UntypedFormControl('',[Validators.required]),
   });
 
   constructor(private auth: AuthService) {

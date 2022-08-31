@@ -29,8 +29,8 @@
                                     <h2>{{sujet.title}}</h2>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+                            <div class="col-md-4" style="text-align:end">
+                                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false" (rateChange)="rate()"></ngb-rating>
                             </div>
                         </div>
                     </div>
@@ -38,13 +38,11 @@
                         <p>{{sujet.text}}</p>
                         <hr>
                         <div class="post-footer29032">
-                            <div class="l-side2023"> <i class="fa fa-check check2" aria-hidden="true"> solved</i> <a
-                                    href="#"><i class="fa fa-star star2" aria-hidden="true"> 5</i></a> <i
-                                    class="fa fa-folder folder2" aria-hidden="true"> wordpress</i> <i
-                                    class="fa fa-clock-o clock2" aria-hidden="true"> 4 min ago</i> <a href="#"><i
-                                        class="fa fa-commenting commenting2" aria-hidden="true"> 5 answer</i></a> <i
-                                    class="fa fa-user user2" aria-hidden="true"> 70 views</i> </div>
-                            <div class="l-rightside39">
+                            <div class="l-side2023"><a
+                                    ><i class="fa fa-star star2" aria-hidden="true"> {{sujet.totalRating}}</i></a><i
+                                    class="fa fa-clock-o clock2" aria-hidden="true"> 4 min ago</i> <a><i
+                                        class="fa fa-commenting commenting2" aria-hidden="true"> {{ sujet.comments.length }} answer</i></a> </div>
+                            <!-- <div class="l-rightside39">
                                 <button type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip"
                                     data-placement="bottom" title="Like"><i class="fa fa-thumbs-o-up "
                                         aria-hidden="true"></i></button>
@@ -52,7 +50,7 @@
                                     data-placement="bottom" title="Dislike"><i class="fa fa-thumbs-o-down"
                                         aria-hidden="true"></i></button> <span
                                     class="single-question-vote-result">+22</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -68,7 +66,7 @@
                                 <ul id="comments-list" class="comments-list">
 
                                     <li *ngFor="let comment of sujet.comments">
-                                        <div *ngIf="auth.isloggedIn && auth.loggedUser.id == sujet.user.id"
+                                        <div *ngIf="(auth.isloggedIn && auth.loggedUser.id == comment.user.id) || auth.loggedUser.role == 'ADMIN'"
                                             style="text-align: end">
                                             <i class='bx bx-x-circle mr-5' style='color:#222222;font-size:29px;'
                                                 (click)="deleteComment(comment.id)"></i>
