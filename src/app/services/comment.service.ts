@@ -55,4 +55,8 @@ createComment(comment:any){
   return this.http.post(this.url+"comment",comment)
 }
 
+getAllComments(){
+  return this.http.get(this.url+"comment");
+}
+
 }

@@ -86,7 +86,7 @@ export class AuthService {
         this.loggedUser =authData.user? JSON.parse(authData.user):null;
         setTimeout(()=>{
           this.logout();
-          },1800000)
+          },5400000)
          
     }
 

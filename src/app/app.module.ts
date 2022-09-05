@@ -28,6 +28,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { AuthGuard } from './auth.guard';
 import { DashboardGuard } from './dashbord.guard';
 import { SearchSujetPipe } from './pipes/search-sujet.pipe';
+import { SideSectionComponent } from './components/side-section/side-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { SearchSujetPipe } from './pipes/search-sujet.pipe';
     EditCommentComponent,
     ComponentComponent,
     EditProfileComponent,
-    SearchSujetPipe
+    SearchSujetPipe,
+    SideSectionComponent
   ],
   imports: [
     BrowserModule,

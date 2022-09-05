@@ -21,7 +21,7 @@ export class SujetService {
   getAllSujet(){
     return this.http.get(this.url+"sujet").subscribe((sujets:any) => {
       this.sujets = sujets;
-      this.sujetsSub.next(this.sujets);
+      this.sujetsSub.next(this.sujets.reverse());
     })  }
 
   getSujet(id:number){
@@ -37,7 +37,7 @@ export class SujetService {
     console.log(result)
       this.sujets[index] = result;
       console.log(this.sujets)
-      this.sujetsSub.next(this.sujets);
+      this.sujetsSub.next(this.sujets.reverse());
     });
   }
 
@@ -48,7 +48,7 @@ export class SujetService {
   createSujet(sujet:any){
     return this.http.post(this.url+"sujet",sujet).subscribe((result)=>{
       this.sujets.push(result);
-      this.sujetsSub.next(this.sujets);
+      this.sujetsSub.next(this.sujets.reverse());
     })
   }
 

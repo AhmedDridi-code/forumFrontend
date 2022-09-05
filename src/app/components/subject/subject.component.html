@@ -3,9 +3,7 @@
     <div class="container">
         <h3>Subject Details</h3>
         <ol class="breadcrumb breadcrumb839">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Post Details</a></li>
-            <li class="active">This Is My first Question</li>
+            <li><a  routerLink="/">Home</a></li>
         </ol>
     </div>
 </section>
@@ -30,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4" style="text-align:end">
-                                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false" (rateChange)="rate()"></ngb-rating>
+                                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false" (rateChange)="rate()" class="star"></ngb-rating>
                             </div>
                         </div>
                     </div>
@@ -39,8 +37,7 @@
                         <hr>
                         <div class="post-footer29032">
                             <div class="l-side2023"><a
-                                    ><i class="fa fa-star star2" aria-hidden="true"> {{sujet.totalRating}}</i></a><i
-                                    class="fa fa-clock-o clock2" aria-hidden="true"> 4 min ago</i> <a><i
+                                    ><i class="fa fa-star star2" aria-hidden="true"> {{sujet.totalRating}}</i></a><a><i
                                         class="fa fa-commenting commenting2" aria-hidden="true"> {{ sujet.comments.length }} answer</i></a> </div>
                             <!-- <div class="l-rightside39">
                                 <button type="button" class="tolltip-button thumbs-up2" data-toggle="tooltip"
@@ -113,7 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="post9320-box">
-                                <input type="text" class="comment-input219882" placeholder="Enter Your Post" #input>
+                                <input type="text" class="comment-input219882" placeholder="Enter Your Comment" #input>
                             </div>
                             <button type="button" class="pos393-submit" (click)="addComment(input.value)">Post Your
                                 Comment</button>
@@ -125,111 +122,7 @@
             <!--                end of col-md-9 -->
             <!--           strart col-md-3 (side bar)-->
             <aside class="col-md-3 sidebar97239 mt-4">
-                <div class="status-part3821">
-                    <h4>stats</h4> <a href="#"><i class="fa fa-question-circle" aria-hidden="true"> Question(20)</i></a>
-                    <i class="fa fa-comment" aria-hidden="true"> Answers(50)</i>
-                </div>
-
-                <!--              highest part-->
-                <div class="highest-part302">
-                    <h4>Highest Points</h4>
-                    <div class="pints-wrapper">
-                        <div class="left-user3898">
-                            <a href="#"><img src="image/images.png" alt="Image"></a>
-                            <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div> <span class="points-details938">
-                            <a href="#">
-                                <h5>Ahmed Hasan</h5>
-                            </a>
-                            <a href="#" class="designetion439">Pundit</a>
-                            <p>206 points</p>
-                        </span>
-                    </div>
-                    <hr>
-                    <div class="pints-wrapper">
-                        <div class="left-user3898">
-                            <a href="#"><img src="image/images.png" alt="Image"></a>
-                            <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div> <span class="points-details938">
-                            <a href="#">
-                                <h5>Ahmed Hasan</h5>
-                            </a>
-                            <a href="#" class="designetion439">Pundit</a>
-                            <p>206 points</p>
-                        </span>
-                    </div>
-                    <hr>
-                    <div class="pints-wrapper">
-                        <div class="left-user3898">
-                            <a href="#"><img src="image/images.png" alt="Image"></a>
-                            <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div> <span class="points-details938">
-                            <a href="#">
-                                <h5>Ahmed Hasan</h5>
-                            </a>
-                            <a href="#" class="designetion439">Pundit</a>
-                            <p>206 points</p>
-                        </span>
-                    </div>
-                    <hr>
-                    <div class="pints-wrapper">
-                        <div class="left-user3898">
-                            <a href="#"><img src="image/images.png" alt="Image"></a>
-                            <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div> <span class="points-details938">
-                            <a href="#">
-                                <h5>Ahmed Hasan</h5>
-                            </a>
-                            <a href="#" class="designetion439">Pundit</a>
-                            <p>206 points</p>
-                        </span>
-                    </div>
-                    <hr>
-                    <div class="pints-wrapper">
-                        <div class="left-user3898">
-                            <a href="#"><img src="image/images.png" alt="Image"></a>
-                            <div class="imag-overlay39"> <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div> <span class="points-details938">
-                            <a href="#">
-                                <h5>Ahmed Hasan</h5>
-                            </a>
-                            <a href="#" class="designetion439">Pundit</a>
-                            <p>206 points</p>
-                        </span>
-                    </div>
-                </div>
-                <!--               end of Highest points -->
-
-                <!--          End tags part-->
-                <!--        start recent post  -->
-                <div class="recent-post3290">
-                    <h4>Recent Post</h4>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                    <hr>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                    <hr>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                </div>
+                <app-side-section></app-side-section>
                 <!--       end recent post    -->
             </aside>
         </div>

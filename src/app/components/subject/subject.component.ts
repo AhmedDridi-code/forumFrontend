@@ -70,13 +70,16 @@ export class SubjectComponent implements OnInit {
       this.rateService.editRating(this.rating).subscribe((result:any)=>{
         console.log(result)
         this.sujet = result.sujet;
+        
       })
 
     }else{
+      this.alreadyRated=true
       let rating = { sujetId:this.sujet.id, userId:this.auth.loggedUser.id, value:this.starRating}
       this.rateService.addRating(rating).subscribe((result:any)=>{
         console.log(result)
         this.sujet = result.sujet;
+        
       })
     }
 

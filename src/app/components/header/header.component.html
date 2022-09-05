@@ -6,7 +6,7 @@
                     <div class="col-md-6">
                         <div class="navbar-menu-left-side239">
                             <ul>
-                                <li class=""><a *ngIf="auth.isloggedIn && auth.loggedUser.role == 'ADMIN'"><i class="fa fa-tachometer " aria-hidden="true"></i>Dashbord</a> <span style="font-size: 16px;  color: #2f3239;
+                                <li class=""><a *ngIf="auth.isloggedIn && auth.loggedUser.role == 'ADMIN'" routerLink="/dashbord/users"><i class="fa fa-tachometer " aria-hidden="true" ></i>Dashbord</a> <span style="font-size: 16px;  color: #2f3239;
                                     margin: 0px 10px;">|</span></li> 
                                 <li ><a (click)="editProfile()"><i class="fa fa-id-card-o" aria-hidden="true"></i>Edit Profile</a></li>
                                 <li *ngIf="!auth.isloggedIn"><a routerLink="/login"><i class="fa fa-user" aria-hidden="true" ></i>Log in</a></li>
@@ -36,7 +36,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand"  routerLink="/"><img src="assets/images/logo.png" alt="Logo"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

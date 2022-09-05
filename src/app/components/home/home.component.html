@@ -17,13 +17,13 @@
                     <button type="button" class="join92">Join Now</button>
                 </a>
             </div>
-            <div class="form-style8292">
+<!--             <div class="form-style8292">
                 <div class="input-group"> <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                     <input #input type="text" class="form-control form-control8392"
                         placeholder="Ask any question and you be sure find your answer ?" > <span
                         class="input-group-addon"><a>search</a></span>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -44,7 +44,7 @@
 
                     <section id="content1">
                         <!--Recent Question Content Section -->
-                        <div class="question-type2033" *ngFor="let sujet of sujets | searchSujet:input.value">
+                        <div class="question-type2033" *ngFor="let sujet of sujets">
                             <div class="row">
                                 <div class="col-md-1">
                                     <div class="left-user12923 left-user12923-repeat">
@@ -62,10 +62,9 @@
                                         </div>
                                         <hr>
                                         <div class="ques-icon-info3293"> <a ><i class="fa fa-star"
-                                                    aria-hidden="true"> {{sujet.totalRating}}</i> </a> <a><i
-                                                    class="fa fa-clock-o" aria-hidden="true"> 4 min ago</i></a> <a [routerLink]="['/subject/',sujet.id]"
+                                                    aria-hidden="true"> {{sujet.totalRating}}</i> </a> <a [routerLink]="['/subject/',sujet.id]"
                                                 ><i class="fa fa-question-circle-o" aria-hidden="true">
-                                                    Question</i></a> </div>
+                                                    Comments</i></a> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -89,7 +88,7 @@
 
                     <section id="content2">
                         <!--Most Response Content Section -->
-                        <div class="question-type2033" *ngFor="let subject of sujets | searchSujet:input.value">
+                        <div class="question-type2033" *ngFor="let subject of sujets">
                             <div class="row" *ngIf="subject.user.id == authService.loggedUser.id">
                                 <div class="col-md-1">
                                     <div class="left-user12923 left-user12923-repeat">
@@ -107,10 +106,9 @@
                                         </div>
                                         <hr>
                                         <div class="ques-icon-info3293"> <a><i class="fa fa-star"
-                                                    aria-hidden="true"> {{subject.totalRating}} </i> </a> <a><i
-                                                    class="fa fa-clock-o" aria-hidden="true"> 4 min ago</i></a> <a [routerLink]="['/subject/',subject.id]"
+                                                    aria-hidden="true"> {{subject.totalRating}} </i> </a> <a [routerLink]="['/subject/',subject.id]"
                                                 ><i class="fa fa-question-circle-o" aria-hidden="true">
-                                                    Question</i></a> </div>
+                                                    Comments</i></a> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -138,39 +136,11 @@
             <!--end of col-md-9 -->
             <!--strart col-md-3 (side bar)-->
             <aside class="col-md-3 sidebar97239 mt-4">
-                <div class="status-part3821">
-                    <h4>stats</h4> <a href="#"><i class="fa fa-question-circle" aria-hidden="true"> Question(20)</i></a>
-                    <i class="fa fa-comment" aria-hidden="true"> Answers(50)</i>
-                </div>
-                
-                <!--               end of Highest points -->
-                <!--        start recent post  -->
-                <div class="recent-post3290">
-                    <h4>Recent Post</h4>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                    <hr>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                    <hr>
-                    <div class="post-details021"> <a href="#">
-                            <h5>How much do web developers</h5>
-                        </a>
-                        <p>I am thinking of pursuing web developing as a career & was ...</p> <small
-                            style="color: #848991">July 16, 2017</small>
-                    </div>
-                </div>
-                <!--       end recent post    -->
+                <app-side-section></app-side-section>
             </aside>
+            
         </div>
     </div>
 </section>
+
 <app-footer></app-footer>
